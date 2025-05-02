@@ -1,0 +1,8 @@
+python-telegram-bot==20.7
+openai==1.14.1
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
+gspread==6.0.2
+oauth2client==4.1.3
+google-api-python-client==2.126.0
+nest_asyncio==1.6.0

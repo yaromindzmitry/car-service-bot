@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: telegram_crm_bot
+    env_file:
+      - .env
+    restart: always
+    volumes:
+      - .:/app
+    command: ["python", "bot.py"]

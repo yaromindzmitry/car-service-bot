@@ -1,0 +1,25 @@
+# Игнорировать виртуальное окружение
+venv/
+__pycache__/
+
+# Игнорировать гит-репозиторий
+.git/
+.gitignore
+
+# Игнорировать файлы конфигурации окружения
+.env
+.env.example
+
+# Игнорировать секреты
+credentials.json
+credentials_calendar.json
+
+# Игнорировать временные файлы
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.log
+
+# Игнорировать Dockerlife (если ещё остался)
+Dockerlife
