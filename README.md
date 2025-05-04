@@ -1,34 +1,154 @@
-# 🚗 Telegram Bot with AI Assistant for Car Service
+# 🤖 Car Service Bot
 
-## 📌 Project Type
-Personal project
+A Telegram bot for an auto repair service with integration into **Google Sheets** and **Google Calendar**.  
+Allows clients to book appointments, receive announcements, view promotions, and interact with an AI assistant for diagnostics.
 
-## 📅 Timeline
-March 2025 – Present
+---
 
-## 📋 Description
-A Telegram bot was developed for online appointment booking in a car service center, featuring a multilingual interface (Russian, Polish, English).  
-The bot guides users through a step-by-step data input process (car make, VIN, issue description, preferred date and time) and saves the information to a Google Sheet.
+## 🚀 Features
 
-🧠 Integrated an AI assistant based on GPT (OpenAI API) to help users describe their vehicle issues more clearly.  
-⚙️ The project is deployed on a virtual private server (VPS) using Docker containers with auto-start and full monitoring setup via Prometheus and Grafana (with alerting to Telegram).
+- 🌐 Multilingual support: Russian and Polish
+- 📅 Google Calendar integration — select available time slots
+- 📊 Google Sheets CRM integration (requests, history, parts)
+- 🧠 AI assistant for error codes and symptoms (ChatGPT)
+- 📍 Send location and route buttons
+- 📢 Admin-controlled newsletter broadcasts
+- 🔔 Telegram notifications for new client requests
+- 🐳 Dockerized deployment with monitoring
 
-## 🔍 Testing Performed
-- Functional and UX testing of the Telegram bot
-- Integration testing with OpenAI GPT API
-- Google Sheets API verification
-- Container health and uptime monitoring via Prometheus/Grafana
-- Logging and conversation history validation
+---
 
-## 🧰 Technologies Used
-- **Languages:** Python
-- **Infrastructure:** Docker · Linux (Ubuntu) · VPS
-- **Integrations:** Telegram Bot API · Google Sheets API · OpenAI GPT API
-- **Monitoring:** Grafana · Prometheus
-- **Tools:** Git · Postman · Chrome DevTools · Pytest · Figma
+## 📦 Installation
 
-## 🛠 Skills & Tools
-Manual Testing · Test Cases & Bug Reports · Jira · Postman · Chrome DevTools · HTML/CSS Basics · API Testing · Git (Basics) · Functional Testing · Regression Testing · Exploratory Testing · Pytest (Basic) · Selenium (Intro) · Figma for UI Review · Test Design Techniques
+```bash
+git clone https://github.com/yaromindzmitry/car-service-bot.git
+cd car-service-bot
+cp .env.example .env
+# Edit .env and credentials.json
+docker compose up -d
+```
 
-## 🔗 Repository Link
-[https://github.com/yaromindzmitry/car-service-bot](https://github.com/yaromindzmitry/car-service-bot)
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file based on the following template:
+
+```env
+BOT_TOKEN=your-telegram-bot-token
+GOOGLE_SHEET_ID=your-google-sheet-id
+CALENDAR_ID=your-calendar-id
+ADMIN_CHAT_ID=your-admin-id
+LANGUAGES=ru,pl
+```
+
+---
+
+## 🧠 AI Assistant
+
+The bot collects:
+- Make, model, year, engine capacity, and fuel type
+- Symptoms or error codes
+- Provides potential causes or requests external data for known codes
+
+---
+
+## 🗂️ Google Sheets CRM Structure
+
+- `Zlecenia` — requests from the bot
+- `Клиенты` — client database
+- `Прием авто` — intake view
+- `История обслуживания` — service history
+- `Заказ-наряды` — job orders
+- `Запчасти` — parts inventory
+- `Финансы` — profit tracking
+
+---
+
+## 🧾 UI Examples
+
+### Multilingual start menu:
+![Main menu](assets/screenshots/bot-main-menu.png)
+
+### AI diagnostics flow:
+![AI assistant](assets/screenshots/ai-diagnostics.png)
+
+---
+
+## 📊 Grafana Monitoring
+
+Bot and infrastructure are monitored with **Prometheus + Grafana**.
+
+### 🧱 Container metrics (cAdvisor)
+![Container Metrics (cAdvisor)](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.09.47.png)
+
+### 🐳 Docker Monitoring Dashboard
+![Docker Monitoring](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.10.31.png)
+
+### 🖥️ Node Exporter Full
+![Node Exporter Full](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.11.03.png)
+
+---
+
+## 🐳 Docker Compose
+
+```yaml
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: car_service_bot
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./credentials.json:/app/credentials.json
+```
+
+---
+
+## 📬 Notifications and Alerts
+
+- Admin receives a message when a new request is submitted
+- Telegram alerts via Prometheus when CPU or RAM thresholds are exceeded
+
+---
+
+## 📄 License
+
+Project is licensed under the [MIT License](LICENSE)
+
+---
+
+## 💬 Contact
+
+Author: [Dzmitry Yaromin](https://github.com/yaromindzmitry)  
+Telegram: [@MPCBimmerUpdate](https://t.me/MPCBimmerUpdate)
+
+---
+
+## 🛠 Technologies & Skills
+
+### Languages & Frameworks:
+- Python (asyncio, `aiogram`)
+- JavaScript (for Google Sheets frontend logic, if applicable)
+
+### APIs & Integrations:
+- Telegram Bot API (`aiogram`)
+- Google Sheets API
+- Google Calendar API
+- OpenAI API (ChatGPT)
+
+### DevOps & Infrastructure:
+- Docker & Docker Compose
+- Prometheus + Grafana (monitoring)
+- Node Exporter, cAdvisor
+- Telegram alerts via Prometheus
+- LXD containers (Ubuntu server on NAS)
+
+### Other Skills:
+- Multi-language input validation and UX in Telegram
+- Secure handling of `.env` and `credentials.json`
+- Google automation for CRM and scheduling
+- Git + GitHub (project structure and collaboration)
