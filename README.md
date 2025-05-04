@@ -80,13 +80,13 @@ The bot collects:
 Bot and infrastructure are monitored with **Prometheus + Grafana**.
 
 ### 🧱 Container metrics (cAdvisor)
-![Container Metrics (cAdvisor)](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.09.47.png)
+![Container Metrics (cAdvisor)](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.11.03.png)
 
 ### 🐳 Docker Monitoring Dashboard
 ![Docker Monitoring](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.10.31.png)
 
 ### 🖥️ Node Exporter Full
-![Node Exporter Full](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.11.03.png)
+![Node Exporter Full](assets/screenshots/Снимок%20экрана%202025-05-04%20в%2014.09.47.png)
 
 ---
 
