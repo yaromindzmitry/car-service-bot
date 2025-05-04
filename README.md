@@ -36,10 +36,13 @@ Create a `.env` file based on the following template:
 
 ```env
 BOT_TOKEN=your-telegram-bot-token
+OPENAI_API_KEY=your-OPENAI_API-token
 GOOGLE_SHEET_ID=your-google-sheet-id
+GOOGLE_CREDENTIALS_PATH=your-CREDENTIALS.json
+GOOGLE_CREDENTIALS_CALENDAR=c  .json
 CALENDAR_ID=your-calendar-id
 ADMIN_CHAT_ID=your-admin-id
-LANGUAGES=ru,pl
+LANGUAGES=ru,pl,en
 ```
 
 ---
@@ -56,12 +59,9 @@ The bot collects:
 ## 🗂️ Google Sheets CRM Structure
 
 - `Zlecenia` — requests from the bot
-- `Клиенты` — client database
-- `Прием авто` — intake view
-- `История обслуживания` — service history
-- `Заказ-наряды` — job orders
-- `Запчасти` — parts inventory
-- `Финансы` — profit tracking
+- `Подписчики` — telegram-bot subscribers
+- `Акции` - promotions and news for clients
+- `Контакты` - service contacts: phone, Instagram, Facebook, Google Maps coordinates
 
 ---
 
